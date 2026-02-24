@@ -46,15 +46,16 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     }
 
     // Configuração real do Supabase
+
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
-      (_event, session) => {
+      (_event: any, session: any) => {
         setSession(session);
         setUser(session?.user ?? null);
         setLoading(false);
       }
     );
 
-    supabase.auth.getSession().then(({ data: { session } }) => {
+    supabase.auth.getSession().then(({ data: { session } }: { data: { session: any } }) => {
       setSession(session);
       setUser(session?.user ?? null);
       setLoading(false);

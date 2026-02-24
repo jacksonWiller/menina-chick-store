@@ -85,7 +85,7 @@ const FeaturedProducts = () => {
                 price={product.price}
                 originalPrice={product.original_price || undefined}
                 image={product.image_url || "/placeholder.svg"}
-                isNew={product.is_new}
+                isNew={product.is_new ?? undefined}
               />
             ))}
           </div>
